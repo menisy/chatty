@@ -19,7 +19,10 @@ Chatty::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
-
+  config.assets.precompile += %w( faye.js )
+  config.assets.precompile += %w( bootstrap.min.js )
+  config.assets.precompile += %w( bootstrap-responsive.min.css )
+  config.assets.initialize_on_precompile = false
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
@@ -64,4 +67,5 @@ Chatty::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  Mongoid.raise_not_found_error = false
 end
