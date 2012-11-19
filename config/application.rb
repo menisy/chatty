@@ -4,6 +4,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "rails/test_unit/railtie"
+require "sprockets/railtie"
 require 'net/http'
 
 if defined?(Bundler)
@@ -13,10 +14,6 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-if %(development test).include?(Rails.env)
-  require 'rspec/core'
-  require 'rspec/core/rake_task'
-end
 
 module Chatty
   class Application < Rails::Application
