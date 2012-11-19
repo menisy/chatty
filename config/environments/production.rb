@@ -22,6 +22,8 @@ Chatty::Application.configure do
   config.assets.precompile += %w( faye.js )
   config.assets.precompile += %w( bootstrap.min.js )
   config.assets.precompile += %w( bootstrap-responsive.min.css )
+  config.assets.precompile += %w( bootstrap-responsive.css )
+  config.assets.precompile += %w( bootstrap.css )
   config.assets.initialize_on_precompile = false
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH

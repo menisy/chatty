@@ -1,0 +1,4 @@
+<% broadcast "/chat/main" do %>
+  buzzOffline( "<%= @user.name %>","<%= @user.id %>");
+<% end %>
+window.location.href = "<%= chats_start_path %>"
