@@ -13,6 +13,11 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+if %(development test).include?(Rails.env)
+  require 'rspec/core'
+  require 'rspec/core/rake_task'
+end
+
 module Chatty
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -31,7 +36,7 @@ module Chatty
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-   config.time_zone = 'Cairo'
+    config.time_zone = 'Cairo'
     config.mongoid.use_activesupport_time_zone = true
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
