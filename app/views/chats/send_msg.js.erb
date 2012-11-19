@@ -1,0 +1,6 @@
+<% broadcast "/chat/main" do %>
+  <% message_mob = @message %>
+  appendWeb("<%= @content %>"," <%= @name %>");
+  scrollDown();
+<% end %>
+$("#new_msg").val('');

@@ -1,0 +1,5 @@
+          chats_login POST /chats/login(.:format)           chats#login
+       chats_send_msg POST /chats/send_msg(.:format)        chats#send_msg
+           chats_show GET  /chats/show(.:format)            chats#show
+chats_disconnect_user POST /chats/disconnect_user(.:format) chats#disconnect_user
+                 root      /                                chats#start

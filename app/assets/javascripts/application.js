@@ -13,3 +13,19 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+function appendWeb(message,name){
+  if($(".chat-main").length > 0){
+    $(".chat-main").append('<b>'+name+': </b>'+message+'<br>');
+  }
+}
+function scrollDown(){
+
+  $(".chat-main").animate({ scrollTop: $(".chat-main")[0].scrollHeight }, "fast");
+  //$(".see").append("  " + $("body")[0].scrollHeight);
+}
+function buzzOnline(name){
+  $(".notify").html(name+' just came online!');
+  $(".notify").fadeIn("slow").delay(3000).fadeOut("slow");
+  $(".users").append(name);
+}

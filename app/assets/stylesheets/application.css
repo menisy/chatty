@@ -11,3 +11,44 @@
  *= require_self
  *= require_tree .
  */
+body{
+  margin-left: 20% !important;
+
+}
+.main-div{
+  margin-top: 100px;
+}
+.chat-main{
+  height: 400px;
+  width: 560px;
+  border: 1px solid #DEDEDE;
+  border-radius: 5px;
+  margin-bottom: 10px !important;
+  overflow: auto;
+  padding:20px;
+}
+#new_msg{
+  width: 525px;
+}
+#send_msg{
+  margin-bottom: 10px;
+  width: 60px;
+}
+.errors{
+  color: red;
+  height: 20px;
+}
+.notify{
+  background-color: #FFAFAF;
+  width: 100px;
+  height: 40px;
+  display: none;
+}
+.users{
+  border: 1px solid #DEDEDE;
+  border-radius: 5px;
+  width: 60px;
+  height: 400px;
+  padding: 20px;
+  margin-bottom: 10px;
+}

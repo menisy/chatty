@@ -1,0 +1,45 @@
+<input type="text" placeholder="Name" id="name-field">
+<br>
+<input type="radio" id="male" name="group1" value="1" checked> 
+Male
+<br>
+<input type="radio" id="female" name="group1" value="0"> 
+Female
+<br>
+<br>
+<div class="errors"></div>
+<div class="btn btn-primary" id="go"> Go! </div>
+<script type="text/javascript">
+  $(document).ready(function(){
+          function next(data){
+            if(data == "exists")
+              $(".errors").html("Name exists!");
+            else
+              window.location = "<%= chats_show_path %>";
+          }
+          $('#name-field').keypress(function(event){
+              if(event.keyCode == 13){
+                $('#go').click();
+              }
+            });
+          $("#go").click(function(){
+            var name = $("#name-field").val();
+            var gender = 0;
+            if($("#male").is(":checked"))
+              gender = 1;
+            var handler = '#{@handler}';
+            $.ajax({
+              url:"<%= chats_login_path %>",
+              type:'POST',
+              datatype:'json',
+              traditional:true,
+              data:{
+                name: name,
+                gender: gender
+              },
+              timeout: 5000,
+              success:next
+            });
+          });
+        });
+</script>

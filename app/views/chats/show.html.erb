@@ -1,0 +1,24 @@
+<table>
+  <tr>
+    <td>
+      <div class="chat-main">
+
+      </div>
+    </td>
+    <td>
+      <div class="users">
+        <% @users.each do |user| %>
+          <%= user.name %>
+          <br>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+</table>
+<div class="notify"></div>
+<%= subscribe "/chat/main" %>
+<input type="text" id="new_msg">
+<input type="button" id="send_msg" class="btn btn-primary" value="send">
+<br><br>
+<%= link_to "Disconnect", chats_disconnect_user_path, class: "btn btn-danger", method: :post %>
+<%= pre %>
