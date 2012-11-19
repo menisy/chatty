@@ -31,7 +31,8 @@ module ApplicationHelper
           $(\".chat-main\").scrollTop($(\".chat-main\")[0].scrollHeight);
           $(\"#send_msg\").click(function(){
             var cont = $(\"#new_msg\").val();
-            
+            if(cont.length == 0)
+              return false;
           var name = '#{@user.name}';
             $.ajax({
               url:'#{ chats_send_msg_path }',

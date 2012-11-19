@@ -24,8 +24,13 @@ function scrollDown(){
   $(".chat-main").animate({ scrollTop: $(".chat-main")[0].scrollHeight }, "fast");
   //$(".see").append("  " + $("body")[0].scrollHeight);
 }
-function buzzOnline(name){
+function buzzOnline(name,id){
   $(".notify").html(name+' just came online!');
   $(".notify").fadeIn("slow").delay(3000).fadeOut("slow");
-  $(".users").append(name);
+  $(".users").append('<span id="'+id+'">'+name+'</span>');
+}
+function buzzOffline(name,id){
+  $(".notify").html(name+' just went offline!');
+  $(".notify").fadeIn("slow").delay(3000).fadeOut("slow");
+  $("#"+id).remove();
 }

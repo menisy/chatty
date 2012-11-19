@@ -20,5 +20,5 @@
 <input type="text" id="new_msg">
 <input type="button" id="send_msg" class="btn btn-primary" value="send">
 <br><br>
-<%= link_to "Disconnect", chats_disconnect_user_path, class: "btn btn-danger", method: :post %>
+<%= link_to "Disconnect", chats_logout_path, class: "btn btn-danger", method: :post, remote: true %>
 <%= pre %>

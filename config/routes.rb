@@ -2,7 +2,7 @@ Chatty::Application.routes.draw do
   post "chats/login"
   post "chats/send_msg"
   get "chats/show"
-  post "chats/disconnect_user"
+  post "chats/logout"
   get "chats/start"
   # The priority is based upon order of creation:
   # first created -> highest priority.

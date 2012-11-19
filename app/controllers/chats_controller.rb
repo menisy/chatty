@@ -2,6 +2,9 @@ class ChatsController < ApplicationController
   before_filter :ensure_login, except: [:start,:login]
   def login
     name = params[:name]
+    if name.blank? or name.length < 3
+      render text: "blank"
+    end
     @user = Chat.first.users.find_by(ln: name.downcase)
     if @user
       render text: "exists"
@@ -22,11 +25,11 @@ class ChatsController < ApplicationController
     @user = User.find(session[:user_id])
   end
 
-  def disconnect_user
-    user = User.find(session[:user_id])
-    Chat.first.users = Chat.first.users - [user]
+  def logout
+    @user = User.find(session[:user_id])
+    Chat.first.users = Chat.first.users - [@user]
     session[:user_id] = nil
-    redirect_to chats_start_path
+    render "logout.js"
   end
 
   def send_msg
