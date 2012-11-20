@@ -28,12 +28,12 @@ module ApplicationHelper
                 $('#send_msg').click();
               }
             });
-          $(\".chat-main\").scrollTop($(\".chat-main\")[0].scrollHeight);
+          $(\".main\").scrollTop($(\".main\")[0].scrollHeight);
           $(\"#send_msg\").click(function(){
             var cont = $(\"#new_msg\").val();
             if(cont.length == 0)
               return false;
-          var name = '#{@user.name}';
+            var name = '#{@user.name}';
             $.ajax({
               url:'#{ chats_send_msg_path }',
               type:'POST',
@@ -41,7 +41,7 @@ module ApplicationHelper
               traditional:true,
               data:{
                 content: cont,
-                name: name  
+                name: name
               },
               timeout: 20000,
             });

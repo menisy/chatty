@@ -15,22 +15,33 @@
 //= require_tree .
 
 function appendWeb(message,name){
-  if($(".chat-main").length > 0){
-    $(".chat-main").append('<b>'+name+': </b>'+message+'<br>');
+  if($(".main").length > 0){
+    $(".main").append('<b>'+name+': </b>'+message+'<br>');
   }
 }
 function scrollDown(){
 
-  $(".chat-main").animate({ scrollTop: $(".chat-main")[0].scrollHeight }, "fast");
+  $(".chat").animate({ scrollTop: $(".chat-main")[0].scrollHeight }, "fast");
   //$(".see").append("  " + $("body")[0].scrollHeight);
 }
 function buzzOnline(name,id){
   $(".notify").html(name+' just came online!');
-  $(".notify").fadeIn("slow").delay(3000).fadeOut("slow");
+  $(".notify").addClass("green").slideDown("slow").delay(3000).slideUp("slow");
+
   $(".users").append('<span id="'+id+'">'+name+'</span>');
 }
 function buzzOffline(name,id){
   $(".notify").html(name+' just went offline!');
-  $(".notify").fadeIn("slow").delay(3000).fadeOut("slow");
+  $(".notify").removeClass("green").slideDown("slow").delay(3000).slideUp("slow");
   $("#"+id).remove();
 }
+
+function subs(room){
+            var client = new Faye.Client('http://nodey-server.herokuapp.com/faye');
+            client.setHeader('Access-Control-Allow-Origin', '*');
+            client.connect();
+            Faye.Transport.WebSocket.isUsable = function(_,c) { c(false) }
+            client.subscribe( room , function(data) {
+            eval(data);
+            });
+          }

@@ -1,24 +1,49 @@
-<table>
-  <tr>
-    <td>
-      <div class="chat-main">
+<body onbeforeunload="CloseIt()">
+  <div class="chat-wrapper shadow"> 
+    <table>
+      <tr>
+        <td>
+          <div class="chat main">
 
-      </div>
-    </td>
-    <td>
-      <div class="users">
-        <% @users.each do |user| %>
-          <%= user.name %>
-          <br>
-        <% end %>
-      </div>
-    </td>
-  </tr>
-</table>
-<div class="notify"></div>
-<%= subscribe "/chat/main" %>
-<input type="text" id="new_msg">
-<input type="button" id="send_msg" class="btn btn-primary" value="send">
-<br><br>
-<%= link_to "Disconnect", chats_logout_path, class: "btn btn-danger", method: :post, remote: true %>
-<%= pre %>
+          </div>
+        </td>
+        <td>
+          <div class="users">
+            <% @users.each do |user| %>
+              <div class="user" id="<%= user.id %>">
+                <%= user.name %>
+              </div>
+            <% end %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" id="new_msg">
+        </td>
+        <td>
+          <input type="button" id="send_msg" class="btn btn-primary" value="send">
+        </td>
+      </tr>
+    </table>
+    <div class="rel">
+      <div class="notify shadow"> koko betengana bebe</div>
+    </div>
+    <%= subscribe "/chat/main" %>
+    <br>
+    <%= link_to "Disconnect", chats_logout_path, class: "btn btn-danger", method: :post, remote: true %>
+    <%= pre %>
+  </div>
+  <script type="text/javascript">
+  $(".user").each(function(i){
+    var r=Math.floor((Math.random()*190)+100);
+    var g=Math.floor((Math.random()*190)+100);
+    var b=Math.floor((Math.random()*190)+100);
+    var br = r-20;
+    var bg = g-20;
+    var bb = b-20;
+    $(this).css("background-color","rgb("+r+","+g+","+b+")");
+    $(this).css("border","1px solid rgb("+br+","+bg+","+bb+")");
+  });
+  </script>
+</body>

@@ -7,10 +7,46 @@
     <%= javascript_include_tag "faye" %>
     <%= javascript_include_tag "bootstrap.min" %>
     <%= csrf_meta_tags %>
+    <script type="text/javascript">
+      function CloseIt(){
+      $.ajax({
+              url:"<%= chats_logout_path %>",
+              type:'POST',
+              async: false,
+              datatype:'json',
+              traditional:true,
+              data:{
+              },
+              timeout: 5000,
+        });
+      }
+    </script>
   </head>
   <body>
-    <div class="main-div">
+    <div class="main-container">
       <%= yield %>
     </div>
   </body>
+  <script type="text/javascript">
+      var i;
+      var n=80;
+      for(i=0;i<n;i++){
+        var width = parseInt($(window).width());
+        var height = parseInt($(window).height());
+        var x=Math.floor((Math.random()*width)-50);
+        var y=Math.floor((Math.random()*height)-50);
+        var w=Math.floor((Math.random()*400)+100);
+        var h=Math.floor((Math.random()*400)+100);
+        var l=Math.floor((Math.random()*-n));
+        var r=Math.floor((Math.random()*210)+100);
+        var g=Math.floor((Math.random()*210)+100);
+        var b=Math.floor((Math.random()*210)+100);
+        var br = r-20;
+        var bg = g-20;
+        var bb = b-20;
+        var rad=Math.floor(h/2);
+        $("body").append('<div style="position:absolute;width:'+w+'px;height:'+h+'px;left:'+x+'px;top:'+y+'px;z-index:'+l+';background-color:rgb('+r+','+g+','+b+');border-radius:'+rad+'px;box-shadow: 1px 1px 20px #757575;border:1px solid rgb('+br+','+bg+','+bb+');"></div>');
+        $(".main-div").children().addClass("top");
+        }
+  </script>
 </html>

@@ -4,6 +4,7 @@ class ChatsController < ApplicationController
     name = params[:name]
     if name.blank? or name.length < 3
       render text: "blank"
+      return;
     end
     @user = Chat.first.users.find_by(ln: name.downcase)
     if @user

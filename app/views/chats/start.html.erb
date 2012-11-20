@@ -1,17 +1,27 @@
-<input type="text" placeholder="Name" id="name-field">
-<br>
-<input type="radio" id="male" name="group1" value="1" checked> 
-Male
-<br>
-<input type="radio" id="female" name="group1" value="0"> 
-Female
-<br>
-<br>
-<div class="errors"></div>
-<div class="btn btn-primary" id="go"> Go! </div>
+<div class="login-wrapper shadow">
+  <div class="login">
+    <input type="text" placeholder="Name" id="name-field">
+    <br>
+    <input type="radio" id="male" name="group1" value="1" checked> 
+    Male
+    <br>
+    <input type="radio" id="female" name="group1" value="0"> 
+    Female
+    <br>
+    <br>
+    <div class="errors"></div>
+    <div class="rel">
+      <div class="btn btn-primary" id="go"> 
+        Go! 
+      </div>
+    </div>
+  </div>
+</div>
 <script type="text/javascript">
   $(document).ready(function(){
+          var busy = false;
           function next(data){
+            busy = false;
             if(data == "exists")
               $(".errors").html("Name exists!");
             else if(data == "blank")
@@ -25,6 +35,11 @@ Female
               }
             });
           $("#go").click(function(){
+            if(!busy){
+              busy = true;
+            }else
+              return false;
+            $(".errors").html('');
             var name = $("#name-field").val();
             var gender = 0;
             if($("#male").is(":checked"))
