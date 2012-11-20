@@ -28,7 +28,15 @@ function buzzOnline(name,id){
   $(".notify").html(name+' just came online!');
   $(".notify").addClass("green").slideDown("slow").delay(3000).slideUp("slow");
 
-  $(".users").append('<span id="'+id+'">'+name+'</span>');
+  $(".users").append('<div class="user" id="'+id+'">'+name+'</div>');
+  var r=Math.floor((Math.random()*190)+100);
+    var g=Math.floor((Math.random()*190)+100);
+    var b=Math.floor((Math.random()*190)+100);
+    var br = r-20;
+    var bg = g-20;
+    var bb = b-20;
+    $("#"+id).css("background-color","rgb("+r+","+g+","+b+")");
+    $("#"+id).css("border","1px solid rgb("+br+","+bg+","+bb+")");
 }
 function buzzOffline(name,id){
   $(".notify").html(name+' just went offline!');

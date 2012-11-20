@@ -12,8 +12,8 @@
  *= require_tree .
  */
 body{
-  margin-left: 25% !important;
-  width: 50% !important;
+  margin-left: 29% !important;
+  width: 60% !important;
   background-color: black !important;
   min-width: 800px !important;
 }
@@ -25,6 +25,10 @@ body{
   padding:80px 40px 20px 40px;
   border-radius: 10px;
   min-height: 500px;
+  position: relative;
+  z-index: 10 !important;
+  margin-left: 10%;
+  max-width: 688px;
 }
 .shadow{
   border: 1px solid #CECECE;
@@ -40,6 +44,21 @@ body{
   padding:20px;
   table-layout: left;
   text-align: left;
+}
+.slider-toggle{
+  width:20px;
+}
+.slider{
+  height: 600px;
+  width:400px;
+  display: ;
+  z-index: -1 !important;
+  position: absolute;
+  left:-420px;
+  top:10px;
+  border-radius: 10px;
+  background-color: white;
+  padding:10px 20px 10px 20px;
 }
 .threads{
   margin-bottom: 10px !important;
