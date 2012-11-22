@@ -39,14 +39,11 @@
   </div>
   <script type="text/javascript">
   $(".user").each(function(i){
-    var r=Math.floor((Math.random()*190)+100);
-    var g=Math.floor((Math.random()*190)+100);
-    var b=Math.floor((Math.random()*190)+100);
-    var br = r-20;
-    var bg = g-20;
-    var bb = b-20;
-    $(this).css("background-color","rgb("+r+","+g+","+b+")");
-    $(this).css("border","1px solid rgb("+br+","+bg+","+bb+")");
+    bg_color = Math.floor((Math.random()*12500670)+6579300).toString(16);
+    bg_color = ("000000" + bg_color).slice(-6);
+    border_color = parseInt(bg_color, 16) - parseInt('000015', 16);
+    $(this).css("background-color","#"+bg_color);
+    $(this).css("border","1px solid #"+border_color);
   });
   </script>
 </body>

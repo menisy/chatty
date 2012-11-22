@@ -29,24 +29,21 @@
   </body>
   <script type="text/javascript">
       var i;
-      var n=80;
+      var n=70;
       for(i=0;i<n;i++){
-        var width = parseInt($(window).width());
-        var height = parseInt($(window).height());
-        var x=Math.floor((Math.random()*width)-50);
-        var y=Math.floor((Math.random()*height)-50);
+        var width = parseInt($(window).width())+100;
+        var height = parseInt($(window).height())+100;
+        var x=Math.floor((Math.random()*width)-150);
+        var y=Math.floor((Math.random()*height)-150);
         var w=Math.floor((Math.random()*400)+100);
         var h=Math.floor((Math.random()*400)+100);
         var l=-1;
-        var r=Math.floor((Math.random()*210)+100);
-        var g=Math.floor((Math.random()*210)+100);
-        var b=Math.floor((Math.random()*210)+100);
-        var br = r-20;
-        var bg = g-20;
-        var bb = b-20;
+        bc= Math.floor((Math.random()*12500670)+6579300).toString(16);
+        bc = ("000000" + bc).slice(-6);
+        brc = parseInt(bc, 16) - parseInt('000015', 16);
         var rad=Math.floor(h/2);
-        $("body").append('<div style="position:absolute;width:'+w+'px;height:'+h+'px;left:'+x+'px;top:'+y+'px;z-index:'+l+';background-color:rgb('+r+','+g+','+b+');border-radius:'+rad+'px;box-shadow: 1px 1px 20px #757575;border:1px solid rgb('+br+','+bg+','+bb+');"></div>');
-        $(".main-div").children().addClass("top");
+        $('body').css('cssText', 'background-color:#'+bc+' important!;');
+        $("body").append('<div class="bk" style="position:absolute;width:'+w+'px;height:'+h+'px;left:'+x+'px;top:'+y+'px;z-index:'+l+';background-color:transparent;border-radius:'+rad+'px;box-shadow: 1px 1px 20px #757575;border:1px solid #e5e5e5;"></div>');
         }
   </script>
 </html>
