@@ -13,28 +13,39 @@
  */
 body{
   margin-left: 29% !important;
-  width: 60% !important;
+  width: 65% !important;
   min-width: 800px !important;
+  overflow: hidden;
 }
 .chat-wrapper{
   margin-top: 50px;
   background-color: white;
   text-align: center;
   vertical-align: center;
-  padding:80px 40px 20px 40px;
+  padding:20px 40px 20px 40px;
   border-radius: 10px;
   min-height: 500px;
   position: relative;
   z-index: 10 !important;
   margin-left: 10%;
-  max-width: 688px;
+  max-width: 700px;
+  overflow: visible;
+}
+.users-td{
+  width:96px !important;
+}
+.main-table{
+  width:100%;
+}
+.disconnect{
+  margin-bottom: 20px;
 }
 .shadow{
   border: 1px solid #CECECE;
   box-shadow: 5px 5px 30px #888888;
 }
 .chat{
-  height: 400px;
+  height: 403px;
   width: 560px;
   border: 1px solid #DEDEDE;
   border-radius: 5px;

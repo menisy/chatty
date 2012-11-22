@@ -1,16 +1,24 @@
 <body>
-  <div class="chat-wrapper shadow"> 
-    <div class="slider shadow">
+  <div class="slider shadow">
       <div class="slider-toggle"> Foursquare</div>
     </div>
-    <table>
+  <div class="chat-wrapper shadow"> 
+    <table class="main-table">
+      <tr>
+        <td>
+        </td>
+        <td>
+          <%= link_to "Disconnect", chats_logout_path, class: "disconnect btn btn-danger pull-right", method: :post, remote: true %>
+          <br><br>
+        </td>
+      </tr>
       <tr>
         <td>
           <div class="chat main">
 
           </div>
         </td>
-        <td>
+        <td class="users-td">
           <div class="users">
             <% @users.each do |user| %>
               <div class="user" id="<%= user.id %>">
@@ -34,16 +42,18 @@
     </div>
     <%= subscribe "/chat/main" %>
     <br>
-    <%= link_to "Disconnect", chats_logout_path, class: "btn btn-danger", method: :post, remote: true %>
     <%= pre %>
   </div>
   <script type="text/javascript">
   $(".user").each(function(i){
-    bg_color = Math.floor((Math.random()*12500670)+6579300).toString(16);
-    bg_color = ("000000" + bg_color).slice(-6);
-    border_color = parseInt(bg_color, 16) - parseInt('000015', 16);
-    $(this).css("background-color","#"+bg_color);
-    $(this).css("border","1px solid #"+border_color);
+    var r=Math.floor((Math.random()*190)+100);
+    var g=Math.floor((Math.random()*190)+100);
+    var b=Math.floor((Math.random()*190)+100);
+    var br = r-20;
+    var bg = g-20;
+    var bb = b-20;
+    $(this).css("background-color","rgb("+r+","+g+","+b+")");
+    $(this).css("border","1px solid rgb("+br+","+bg+","+bb+")");
   });
   </script>
 </body>

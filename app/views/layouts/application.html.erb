@@ -42,7 +42,6 @@
         bc = ("000000" + bc).slice(-6);
         brc = parseInt(bc, 16) - parseInt('000015', 16);
         var rad=Math.floor(h/2);
-        $('body').css('cssText', 'background-color:#'+bc+' important!;');
         $("body").append('<div class="bk" style="position:absolute;width:'+w+'px;height:'+h+'px;left:'+x+'px;top:'+y+'px;z-index:'+l+';background-color:transparent;border-radius:'+rad+'px;box-shadow: 1px 1px 20px #757575;border:1px solid #e5e5e5;"></div>');
         }
   </script>
