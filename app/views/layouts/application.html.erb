@@ -40,7 +40,10 @@
         var h=Math.floor((Math.random()*400)+100);
         var l=-1;
         index = Math.floor(Math.random()*2);
-        color = arr[index];
+        if(i>n/2)
+          color = arr[0];
+        else
+          color = arr[1];
         colorb = color;
         if(color == "#e5e5e5")
           colorb = "#757575";
