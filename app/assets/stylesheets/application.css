@@ -17,6 +17,44 @@ body{
   min-width: 800px !important;
   overflow: hidden;
 }
+@font-face {
+    font-family: 'one_starry_nightregular';
+    src: url('/assets/one-starry-night-webfont.eot');
+    src: url('/assets/one-starry-night-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/one-starry-night-webfont.woff') format('woff'),
+         url('/assets/one-starry-night-webfont.ttf') format('truetype'),
+         url('/assets/one-starry-night-webfont.svg#one_starry_nightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'dandelion_in_the_springRg';
+    src: url('/assets/dandelion_in_the_spring-webfont.eot');
+    src: url('/assets/dandelion_in_the_spring-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/dandelion_in_the_spring-webfont.woff') format('woff'),
+         url('/assets/dandelion_in_the_spring-webfont.ttf') format('truetype'),
+         url('/assets/dandelion_in_the_spring-webfont.svg#dandelion_in_the_springRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+.logo{
+  font-family: dandelion_in_the_springRg, Helvetica, Arial, sans-serif;
+  font-size: 100px;
+  height: 100px;
+  vertical-align: top;
+  line-height: 130px;
+  padding: 2px;
+  font-weight: bold;
+  top:-50px;
+  left:335px;
+  z-index: 100;
+  position: absolute;
+  color:#B7B7B7;
+  text-shadow: 2px 2px 5px #3c3c3c;
+  min-width: 600px;
+}
 .chat-wrapper{
   margin-top: 50px;
   background-color: white;
@@ -87,16 +125,17 @@ body{
 .login{
   padding:10px;
   text-align: left !important;
-  margin-left: 15%;
+  margin-left: 10%;
 }
 .login-wrapper{
   text-align: center !important;
   background-color: white;
-    border-radius: 10px;
-    margin-top: 30%;
-    margin-left: 15%;
-    padding:20px;
-    width: 350px;
+  border-radius: 10px;
+  margin-top: 30%;
+  margin-left: 11%;
+  padding:20px;
+  width: 300px;
+  height: 90px;
 }
 .notify{
   background-color: #FFAFAF;

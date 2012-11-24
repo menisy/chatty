@@ -1,4 +1,7 @@
 <div class="login-wrapper shadow">
+  <div class="logo">
+    Chatty Appy!
+  </div>
   <div class="login">
     <input type="text" placeholder="Name" id="name-field">
     <br>
@@ -58,5 +61,10 @@
               success:next
             });
           });
+          // $(".test").delay(100).animate({rotate: '30deg'},500,'easeOutCirc').animate({rotate: '-30deg'},500,'easeOutCirc').animate({rotate: '30deg'},500,'easeOutCirc').animate({rotate: '-30deg'},500,'easeOutCirc').animate({rotate: '30deg'},500,'easeOutCirc').animate({rotate: '-30deg'},500,'easeOutCirc');
+          $lo = $(".logo");
+          $lo.delay(200).animate({top:"+152px"},1500,'easeOutBounce');
+          //$(".test").hide();
+          //$(".test").fadeIn({duration: 3000, easing: "easeInOutBounce"});
         });
 </script>
