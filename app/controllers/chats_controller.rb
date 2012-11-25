@@ -6,6 +6,9 @@ class ChatsController < ApplicationController
       render text: "blank"
       return;
     end
+    if Chat.first.nil?
+      Chat.create(name:"First")
+    end
     @user = Chat.first.users.find_by(ln: name.downcase)
     if @user
       render text: "exists"

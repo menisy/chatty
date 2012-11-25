@@ -1,5 +1,5 @@
 <div class="login-wrapper shadow">
-  <div class="logo">
+  <div class="logo shake">
     Chatty Appy!
   </div>
   <div class="login">
@@ -12,11 +12,11 @@
     Female
     <br>
     <br>
-    <div class="errors"></div>
-    <div class="rel">
-      <div class="btn btn-primary" id="go"> 
+    <div class="btn btn-primary shake" id="go"> 
         Go! 
       </div>
+    <div class="errors shadow"></div>
+    <div class="rel">
     </div>
   </div>
 </div>
@@ -25,11 +25,13 @@
           var busy = false;
           function next(data){
             busy = false;
-            if(data == "exists")
+            if(data == "exists"){
               $(".errors").html("Name exists!");
-            else if(data == "blank")
+            $(".errors").slideDown("slow").delay(5000).slideUp("slow");
+            }else if(data == "blank"){
               $(".errors").html("Name can't be blank nor less than 3 characters");
-            else
+            $(".errors").slideDown("slow").delay(5000).slideUp("slow");
+            }else
               window.location = "<%= chats_show_path %>";
           }
           $('#name-field').keypress(function(event){

@@ -39,6 +39,30 @@ body{
     font-style: normal;
 
 }
+@-webkit-keyframes spaceboots {
+  0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+  10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+  30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+  40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+  50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+  70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+  80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+  90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+  100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}
+.shake:hover,
+.shake:focus {
+  -webkit-animation-name: spaceboots;
+  -webkit-animation-duration: 1.0s;
+  -webkit-transform-origin:50% 50%;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+.shake {
+  display:inline-block
+}
 .logo{
   font-family: dandelion_in_the_springRg, Helvetica, Arial, sans-serif;
   font-size: 100px;
@@ -55,14 +79,25 @@ body{
   text-shadow: 2px 2px 5px #3c3c3c;
   min-width: 600px;
 }
+.logo2{
+  font-family: dandelion_in_the_springRg, Helvetica, Arial, sans-serif;
+  font-size: 80px;
+  position: absolute;
+  z-index: 100;
+  top: 40px;
+  left: 500px;
+  color:#B7B7B7;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px #3c3c3c;
+}
 .chat-wrapper{
   margin-top: 50px;
   background-color: white;
   text-align: center;
   vertical-align: center;
-  padding:20px 40px 20px 40px;
+  padding:20px 40px 0px 40px;
   border-radius: 10px;
-  min-height: 500px;
+  height: 550px;
   position: relative;
   z-index: 10 !important;
   margin-left: 10%;
@@ -94,19 +129,30 @@ body{
   text-align: left;
 }
 .slider-toggle{
-  width:20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 15px;
+  margin-left: 20px;
 }
 .slider{
   height: 600px;
   width:400px;
-  display: ;
-  z-index: -1 !important;
+  z-index: 1 !important;
   position: absolute;
-  left:-420px;
+  left:20px;
   top:10px;
+  background-color: white;
   border-radius: 10px;
   background-color: white;
   padding:10px 20px 10px 20px;
+}
+.images{
+  padding-bottom: 10px;
+  overflow: auto;
+  height:500px;
+}
+.sq{
+  margin-bottom: 8px !important;
 }
 .threads{
   margin-bottom: 10px !important;
@@ -120,12 +166,25 @@ body{
 }
 .errors{
   color: red;
+  background-color: white;
+  display: none;
+  padding:5px;
+  border-radius: 10px;
   height: 20px;
+  position: relative;
+  left: -15px;
+  height: auto;
+  top: -25px;
+  text-align: center;
 }
 .login{
   padding:10px;
   text-align: left !important;
   margin-left: 10%;
+}
+.ll{
+  margin-left: 20px;
+  width: 234px;
 }
 .login-wrapper{
   text-align: center !important;
@@ -146,6 +205,8 @@ body{
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #FF807D;
+  top:-550px;
+  height: auto;
 }
 .user{
   padding:2px 4px 2px 4px;
@@ -171,9 +232,9 @@ body{
   position: relative;
 }
 #go{
-  position: absolute;
-  left:168px;
-  bottom:40px;
+  position: relative;
+  left:166px;
+  bottom:50px;
 }
 .warn{
   background-color: red;

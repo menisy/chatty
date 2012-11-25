@@ -1,6 +1,14 @@
-<body>
+<body onbeforeunload="CloseIt()">
+  <div class="logo2">Chatty Appy!</div>
   <div class="slider shadow">
-      <div class="slider-toggle"> Foursquare</div>
+      <div class="slider-toggle"> Search venues</div>
+      <div>
+        <input type="text" value="40.7484,73.9847" class="ll"/>
+        <input type="button" class="sq btn btn-success" value="Go">
+        <div class="images">
+
+        </div>
+      </div>
     </div>
   <div class="chat-wrapper shadow"> 
     <table class="main-table">
@@ -45,15 +53,54 @@
     <%= pre %>
   </div>
   <script type="text/javascript">
-  $(".user").each(function(i){
-    var r=Math.floor((Math.random()*190)+100);
-    var g=Math.floor((Math.random()*190)+100);
-    var b=Math.floor((Math.random()*190)+100);
-    var br = r-20;
-    var bg = g-20;
-    var bb = b-20;
-    $(this).css("background-color","rgb("+r+","+g+","+b+")");
-    $(this).css("border","1px solid rgb("+br+","+bg+","+bb+")");
-  });
-  </script>
+    var photos = new Array();
+    $(".user").each(function(i){
+      var r=Math.floor((Math.random()*190)+100);
+      var g=Math.floor((Math.random()*190)+100);
+      var b=Math.floor((Math.random()*190)+100);
+      var br = r-20;
+      var bg = g-20;
+      var bb = b-20;
+      $(this).css("background-color","rgb("+r+","+g+","+b+")");
+      $(this).css("border","1px solid rgb("+br+","+bg+","+bb+")");
+    });
+
+    function getFour(option,val){
+      var ids = new Array();
+      url='https://api.foursquare.com/v2/venues/search?v=20120101&'+option+'='+val+'&client_id=TS0SJXF3W5QT4JYRF3QYNJRG4UG5JBJBBGKB5RIVQF3G1AIF&client_secret=A0P3KA3W4DWOJA3WAU0BWROLVZT2UGWMXHM3E3B45QT5FDEY&limit=6';
+      $.getJSON(url, function(data){
+        $.each(data.response.venues, function(j,ven){
+          ids[j] = ven.id;
+        });
+        $('.images').html('');
+        if(ids.length == 0)
+          $(".images").append("Sorry, no venues near these cooardinates");
+        var noImage = true;
+        for(var i=0;i<ids.length;i++){
+        $.getJSON('https://api.foursquare.com/v2/venues/'+ids[i]+'/photos?v=20100101&client_id=TS0SJXF3W5QT4JYRF3QYNJRG4UG5JBJBBGKB5RIVQF3G1AIF&client_secret=A0P3KA3W4DWOJA3WAU0BWROLVZT2UGWMXHM3E3B45QT5FDEY&limit=10',
+          function(data) {
+            $.each(data.response.photos.groups[1].items, function(j,venues){
+              if(venues.sizes.items[1].url.length > 5){
+              $('<img style="margin: 0px 0px 20px 20px;" class="photos" src="'+venues.sizes.items[1].url+'" />').hide().appendTo('.images');
+            }
+              $('.photos').load(function(){
+                $(this).slideDown();
+              });
+             });
+        });
+      }
+      });
+    }
+    $(document).ready( function(){
+      $(".sq").click(function(){
+        $('.photos').slideUp();
+        var val = $(".ll").val();
+        if(val.indexOf(",") > -1)
+          getFour("ll",val);
+        else
+          getFour("near",val);
+      });
+
+    });
+</script>
 </body>
