@@ -96,7 +96,7 @@
         $('.photos').slideUp();
         var val = $(".ll").val();
         if(val.indexOf(",") > -1)
-          getFour("ll",val);
+          getFour("ll",val.replace(/\s/g, ""));
         else
           getFour("near",val);
       });
